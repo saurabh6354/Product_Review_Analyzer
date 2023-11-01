@@ -211,9 +211,9 @@ def my_form_post():
         error = f"Error fetching the URL: {str(e)}"
         return render_template('error.html', error=error)
 
-@app.route('/analyze-alexa')
+@app.route('/analyze-web')
 def analyze_alexa_sentiment():
-    reviews_url = "https://www.amazon.com/Charcoal-Amazon-Basics-Smart-Color/product-reviews/B0BNP8FTHP/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+    reviews_url = request.args.get('reviews_url')
 
     try:
         headers = {
